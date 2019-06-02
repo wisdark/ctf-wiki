@@ -1,77 +1,101 @@
-# 前言
+# CTF Wiki
 
-欢迎来到`CTF Wiki`。
+[![Build Status](https://travis-ci.org/ctf-wiki/ctf-wiki.svg?branch=master)](https://travis-ci.org/ctf-wiki/ctf-wiki)
+[![Requirements Status](https://requires.io/github/ctf-wiki/ctf-wiki/requirements.svg?branch=master)](https://requires.io/github/ctf-wiki/ctf-wiki/requirements/?branch=master)
+[![Slack](https://img.shields.io/badge/slack-join%20chat-brightgreen.svg)](https://join.slack.com/t/ctf-wiki/shared_invite/enQtNTkwNDg5NDUzNzAzLWExOTRhZTE0ZTMzYjVlNDk5OGI3ZDA1NmQyZjE4NWRlMGU3NjEwM2Y2ZTliMTg4Njg1MjliNWRhNTk2ZmY0NmI)
 
-`CTF`，全称`Capture The Flag`，即夺旗赛，起源于1996年DEFCON全球黑客大会，是网络安全技术人员进行技术竞技的一种比赛。
+[中文](./README-zh_CN.md)  [English](./README.md)
 
-`CTF Wiki`是一个免费开放且持续更新的知识整合站点，你可以在这里学到关于CTF竞赛及网络安全相关的有趣知识，我们为你准备了CTF竞赛中的`基础知识`、`常见题型`、`解题思路`以及`常用工具`等，帮助你更快速地了解CTF竞赛以及网络安全。
+Welcome to **CTF Wiki**！
 
-## 我能收获什么？
+**CTF** (Capture The Flag) started from **DEFCON CTF**, a competitive game among network security enthusiasts, originally hosted in 1996.
 
-* 一个不一样的思考方式以及一颗乐于解决问题的心
-* 锻炼你的快速学习能力，不断学习新事物
-* 一些有趣的安全技术与相应的挑战
-* 一段充实奋斗的时光
+**CTF** covers a wide range of fields. While, the security technology is evolving faster and faster, the difficulty of **CTF** is getting progressively harder. As a result, the threshold for beginners is getting progressively higher. Most of the online information is scattered and trivial. Beginners often don't know how to systematically learn **CTF** related domain knowledge. Also, it takes a lot of time.
 
-在阅读Wiki之前，我们希望能给予你几点建议：
+In order to make the people who love **CTF** get started **CTF**ing, in October 2016, **CTF Wiki** was launched on Github. With rich content, **CTF Wiki** receives a lots of appreciation from security enthusiasts, many friends whom we never thought we'ed meet.
 
-* 至少掌握一门编程语言
-* 阅读短文 [<< 提问的智慧 >>](http://www.jianshu.com/p/60dd8e9cd12f)
-* 善用Google搜索能帮助你更好地提升自己
-* 动手实践比什么都要管用
-* 保持对技术的好奇与渴望并坚持下去
+As a freedom site, focusing on recent year's CTF, **CTF Wiki** introduces the knowledge and techniques from all directions of **CTF** to make it easier for beginners to learn **CTF**.
 
-> 世界很大，互联网让世界变小，真的黑客们应该去思考并创造，无论当下是在破坏还是在创造，记住，未来，那条主线是创造的就对了。 ——by 余弦
+Now, **CTF Wiki** mainly contains the basic knowledge of **CTF**, and we are now working hard to enrich the following contents.
 
-安全圈很小，安全的海洋很深。安全之路的探险，不如就从`CTF Wiki`开始！
+- Advanced knowledge about CTF
+- High quality topics about CTF
 
-## 想要帮助Wiki更加完善？
+For the above-mentioned parts to be improved, please refer to the [Projects](https://github.com/ctf-wiki/ctf-wiki/projects) which details what to do.
 
-我们非常欢迎你为wiki编写内容，将自己的所学所得与大家分享。
+While **CTF Wiki** is now based on **CTF**, it is not limited to **CTF**. In future, **CTF Wiki** will
 
-### 协作方式
+- Introducing tools in security research
+- More integration with security
 
-本文档仅有master分支，通过fork和PR的方式更新文档。基本流程如下
+In addition, given the following two points
 
-1. fork主仓库到自己的仓库中。
-2. 在你贡献某一个章节或部分内容时，你需要在issue的TODO中进行对应的标记（如果没有你的那部分，请发issue提问）。
-3. 编辑结束之后，**请你确保在本地可以正常生成文档**，然后再将分支PR到主仓库的master分支上。
-4. PR评论区进行评论。**尽量在评论之前仔细思考，评论内容要条理清晰，最好给出修正方式，或指出需要集体讨论。** 
-5. 提出该PR的人根据评论修正内容，然后将修改后的内容merge到master分支中。
+- Technology should be shared in an open manner.
+- Security offensive and defensive technologies are always up to date. Old attack technologies may fail at any time in the face of new defense technologies.
 
-目前，在人员较少的前提下，基本上可以忽略4-5步。第2步也可以暂时忽略，，，
+Therefore, **CTF Wiki** will never publish books.
 
-**注：本文档使用[docsify](https://github.com/QingWei-Li/docsify)部署，请自行学习一下。**
+Finally, originating from the community, as an independent organization, **CTF Wiki** advocates **freedom of knowledge**, will **never be commercialized** in the future, and will always maintain the nature of **independence and freedom**.
 
-### 关于PR
+## How to build？
 
-一次PR应至少包含以下描述:
+Now, CTF Wiki uses [mkdocs](https://github.com/mkdocs/mkdocs) to show its contents. And it is deployed at [https://ctf-wiki.github.io/ctf-wiki/](https://ctf-wiki.github.io/ctf-wiki/).
 
-* 标题: 本次PR的目的(做了xxx工作，修复了xxx问题)
-* 内容: 对修复问题的叙述（如果必要的话）
+Of course, it can be deployed locally, do as following
 
-### 关于格式的问题
+```shell
+# 1. clone
+git clone https://github.com/ctf-wiki/ctf-wiki.git
+# 2. requirements
+pip install -r requirements.txt
+# generate static file in site/
+mkdocs build
+# deploy at http://127.0.0.1:8000
+mkdocs serve
+```
 
-对于某种类型的题目应该尽可能包含以下几个部分
+The locally deployed mkdocs website is dynamically updated, i.e. when you modify and save the markdown file, the page will be dynamically updated.
 
-- 原理
-- 例子
-- 题目
+If you just want to view it without any modify, try Docker!
 
-其对应的存储的一般应该有如下目录
+```
+docker run -d --name=ctf-wiki -p 4100:80 ctfwiki/ctf-wiki
+```
+And then access [http://localhost:4100/](http://localhost:4100/) .
 
-- example，存储在文中介绍时所使用的题目
-- figure， 存储介绍时所使用的图片
-- 其它必要内容
+## How to practice？
 
-其中，题目中只需要说明对应的题目名字，相应的题目应该存储在ctf-challenge仓库中的对应目录中。
+First, learn some basic security knowledge through online reading.
 
+Second, CTF Wiki has two sister projects.
 
-### 备注
+- All of the challenges talked in the readings are in the [ctf-challenges](https://github.com/ctf-wiki/ctf-challenges) repository, you can look for them according to the corresponding category. Note: There are still some topics under the warehouse that are currently being migrated. . . (misc, web)
+- The tools involved in the CTF Wiki are constantly added to the [ctf-tools](https://github.com/ctf-wiki/ctf-tools) repository.
 
-1. 尽量使用issue，方便记录，也方便于其他人查看，同时交流方便。
-2. 如果有好的建议，欢迎提出。
+## How to make CTF Wiki Better？
 
-最后，我们的github仓库地址是[https://github.com/ctf-wiki/ctf-wiki](https://github.com/ctf-wiki/ctf-wiki)， 欢迎 `fork` 和 `pull request` 。当然，如果你有任何的问题，也欢迎在issue中提出。
+Welcome to write content for the wiki and share what you have learned. 
 
-我们 一直都期待着你的加入。
+**Before you decide to contribute content, please be sure to read [CONTRIBUTING](https://github.com/ctf-wiki/ctf-wiki/wiki/Contributing-Guide)**.
+
+Thank you to all the people who have already contributed to CTF Wiki.
+
+<a href="https://github.com/ctf-wiki/ctf-wiki/graphs/contributors"><img src="https://opencollective.com/ctf-wiki/contributors.svg?width=890&button=false" />
+
+## What can you get?
+
+- Ability to learn new things quickly
+- Different ways of thinking
+- A willing heart to solve problems
+- Interesting security technology
+- Memorable time
+
+Before reading the Wiki, we hope to give you some advice:
+
+- Learn [smart-questions](http://www.catb.org/~esr/faqs/smart-questions.html) .
+- Making good use of Google Search can help you better improve yourself.
+- Master at least one programming language, such as Python.
+- Practice is more useful than anything.
+- Keep curiosity and desire for technology and stick to it.
+
+The security circle is small and the security ocean is deep. Let's get started from **CTF Wiki**!
