@@ -11,7 +11,7 @@ Attacks caused by stack overflows are very common and very old. A mitigation tec
 Canary is simple and efficient in both implementation and design. It is to insert a value. At the end of the high-risk area where stack overflow occurs, when the function returns, check if the value of canary has been changed to determine whether stack/buffer overflow is occur.
 
 
-Canary and GS protection under Windows are effective means to prevent stack overflow. Its appearance largely prevents stack overflow, and since it hardly consumes system resources, it has become the standard of protection mechanism under Linux.
+Canary and GS protection under Windows are effective means to mitigate stack overflow. Its appearance largely increases the difficulty of exploiting a stack buffer overflow, and since it hardly consumes system resources, it has become the standard of protection mechanism under Linux.
 
 
 ## Canary Principle
@@ -36,7 +36,6 @@ The stack structure that enables Canary protection is as follows
 ```
 
         High
-
         Address |                 |
 
                 +-----------------+
@@ -57,9 +56,11 @@ The stack structure that enables Canary protection is as follows
 
                 +-----------------+
 
-| Local variables |
+                | Local variables |
+                
+                +-----------------+
+                
         Low     |                 |
-
         Address
 
 
@@ -191,8 +192,11 @@ int main(void) {
 
 ```
 
-Compile to 32bit program, open NX, ASLR, Canary protection
+Compile as 32bit program and disable PIE protection (NX, ASLR and Canary protection are invoked by default)
 
+```bash
+$ gcc -m32 -no-pie ex2.c -o ex2 
+```
 
 First print out the 4-digit Canary by overwriting the last `\x00` byte of Canary
 After that, calculate the offset, fill Canary into the corresponding overflow position, and implement Ret into the getshell function.
