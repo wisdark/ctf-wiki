@@ -12,11 +12,11 @@ Welcome to **CTF Wiki**！
 
 **CTF** covers a wide range of fields. Along with the evolving security technology, the difficulty of **CTF** challenges is getting harder and harder. As a result, the learning curve for beginners is getting steeper. Most online information is scattered and trivial. Beginners often don't know how to systematically learn **CTF**, which requires a lot of work and effort.
 
-In order to let those people who are interested in **CTF**s start easily, in October 2016, **CTF Wiki** was establisged on Github. Along with gradually improved content over time, **CTF Wiki** has received lots of appreciation from security enthusiasts, many of those are guys that we think we would never meet.
+In order to let those people who are interested in **CTF**s start easily, in October 2016, **CTF Wiki** was established on Github. Along with gradually improved content over time, **CTF Wiki** has received lots of appreciation from security enthusiasts, many of those are guys that we think we would never meet.
 
 As a freedom site, primarily focusing on recent CTFs, **CTF Wiki** introduces the knowledge and techniques in all aspects of **CTF** to make it easier for beginners to learn **CTF**.
 
-Now, **CTF Wiki** mainly contains the basic skill-set for **CTF**, but we are working hard to improve the following contents.
+Now, **CTF Wiki** mainly contains the basic skills for **CTF**, but we are working hard to improve the following contents.
 
 - Advanced skills used in CTF
 - Special topics appearing in CTF
@@ -39,7 +39,7 @@ Finally, originating from the community, as an independent organization, **CTF W
 
 ## How to build？
 
-CTF Wiki uses [mkdocs](https://github.com/mkdocs/mkdocs) to show its contents. And it is deployed at [https://ctf-wiki.github.io/ctf-wiki/](https://ctf-wiki.github.io/ctf-wiki/).
+CTF Wiki uses [mkdocs](https://github.com/mkdocs/mkdocs) to show its contents. And it is deployed at [https://ctf-wiki.org](https://ctf-wiki.org).
 
 It can also be deployed locally, with the following steps:
 
@@ -49,14 +49,16 @@ git clone https://github.com/ctf-wiki/ctf-wiki.git
 # 2. requirements
 pip install -r requirements.txt
 # generate static file in site/
-mkdocs build
-# deploy at http://127.0.0.1:8000
-mkdocs serve
+python3 scripts/docs.py build-all
+# deploy at http://127.0.0.1:8008
+python3 scripts/docs.py serve
 ```
 
 ** A local instance of mkdocs is dynamically updated, for instance when a markdown file is modified, the corresponding page will be modified too.**
 
 If you just want to view it statically, try Docker!
+
+> Note: after using mkdocs-material-insiders, we haven't support building website with docker.
 
 ```
 docker run -d --name=ctf-wiki -p 4100:80 ctfwiki/ctf-wiki
@@ -70,18 +72,17 @@ Firstly, learn some basic security knowledge through online reading.
 Secondly, CTF Wiki has two sister projects.
 
 - All of the challenges that are mentioned are in the [ctf-challenges](https://github.com/ctf-wiki/ctf-challenges) repository, you can locate them with their corresponding category.
-  - Note: There are still some topics that are still being migrated. . . (misc, web)
 - The tools mentioned in the CTF Wiki are constantly added to the [ctf-tools](https://github.com/ctf-wiki/ctf-tools) repository.
 
 ## How to make CTF Wiki Better？
 
 We welcome to write content for the wiki and share what you have learned. 
 
-**Before you decide to contribute content, please read [CONTRIBUTING](https://github.com/ctf-wiki/ctf-wiki/wiki/Contribution-Guide)**.
+**Before you decide to contribute content, please read [CONTRIBUTING](https://ctf-wiki.org/en/contribute/before-contributing/)**.
 
 Thank you to all the people who have already contributed to CTF Wiki.
 
-<a href="https://github.com/ctf-wiki/ctf-wiki/graphs/contributors"><img src="https://opencollective.com/ctf-wiki/contributors.svg?width=890&button=false" />
+<a href="https://github.com/ctf-wiki/ctf-wiki/graphs/contributors"><img src="https://opencollective.com/ctf-wiki/contributors.svg?width=890&button=false" /></a>
 
 ## What can you get?
 
